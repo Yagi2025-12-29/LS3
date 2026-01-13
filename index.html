@@ -89,49 +89,47 @@
         }
 
         /* Wheel UI Styles */
+        /* Wheel UI Styles */
         #wheel-container {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: stretch;
             width: 98vw;
-            gap: 15px;
+            gap: 8px;
             margin-top: auto;
-            padding-bottom: 20px;
-            flex-wrap: wrap;
+            padding-bottom: 5px;
+            flex-wrap: nowrap;
+            /* 強制1列 */
         }
 
         .wheel-box {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
             background: var(--panel-bg);
-            padding: 10px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
-        }
-
-        .wheel-label {
-            font-size: 10px;
-            color: #888;
-            margin-bottom: 8px;
-            font-weight: bold;
+            flex: 1;
+            min-width: 0;
         }
 
         .hand-wheel {
             width: var(--wheel-size);
             height: var(--wheel-size);
             border-radius: 50%;
-            background: radial-gradient(circle, #555 0%, #222 70%, #444 100%);
-            border: 6px solid #1a1a1a;
+            background: radial-gradient(circle, #444 0%, #1a1a1a 70%, #333 100%);
+            border: 5px solid #000;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: grab;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-            transition: border-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            margin: 5px 0;
         }
 
         .hand-wheel:active {
@@ -141,63 +139,64 @@
 
         .wheel-knob {
             position: absolute;
-            top: 15px;
-            width: 28px;
-            height: 28px;
-            background: radial-gradient(circle at 30% 30%, #666, #111);
+            top: 12px;
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle at 30% 30%, #666, #000);
             border-radius: 50%;
-            border: 1px solid #000;
-            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
+            border: 1px solid #111;
         }
 
         .wheel-display {
             pointer-events: none;
             text-align: center;
-            background: rgba(0, 0, 0, 0.8);
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.9);
+            width: 95%;
+            padding: 4px 0;
+            border-radius: 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: inset 0 0 15px rgba(0, 242, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.1);
         }
 
         .wheel-axis {
-            font-size: 10px;
+            font-size: 9px;
             color: #555;
-        }
-
-        .wheel-val {
-            font-size: 18px;
-            color: var(--neon-blue);
-            font-family: 'Courier New', monospace;
-            text-shadow: 0 0 10px var(--neon-blue);
             font-weight: bold;
         }
 
+        .wheel-val {
+            font-size: 16px;
+            color: var(--neon-blue);
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 8px var(--neon-blue);
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
         .wheel-unit {
-            font-size: 9px;
+            font-size: 8px;
             color: #444;
         }
 
         .wheel-zero {
-            margin-top: 10px;
-            height: 24px;
-            width: 60px;
+            height: 20px;
+            width: 90%;
             font-size: 9px;
-            border-color: var(--neon-blue);
-            color: var(--neon-blue);
-            background: transparent;
-            font-weight: bold;
+            border-color: #555;
+            color: #888;
+            background: #222;
+            border-radius: 4px;
+            border: 1px solid #444;
         }
 
         .extra-ctrls {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             justify-content: flex-end;
         }
 
@@ -205,15 +204,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             background: rgba(0, 0, 0, 0.3);
-            padding: 8px;
-            border-radius: 10px;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         #contact-lamp {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             background: #222;
             border-radius: 50%;
             border: 1px solid #444;
@@ -221,12 +220,14 @@
         }
 
         #feed-btn {
-            height: 60px;
-            width: 80px;
+            height: 50px;
+            width: 60px;
             font-weight: bold;
+            font-size: 9px;
             background: linear-gradient(to bottom, #333, #111);
             border: 2px solid #555;
             color: #aaa;
+            padding: 2px;
         }
 
         .btn-active {
@@ -237,20 +238,25 @@
 
         @media (max-width: 600px) {
             :root {
-                --wheel-size: 100px;
+                --wheel-size: 85px;
             }
 
             #wheel-container {
-                gap: 8px;
-            }
-
-            .wheel-display {
-                width: 60px;
-                height: 60px;
+                gap: 4px;
             }
 
             .wheel-val {
-                font-size: 14px;
+                font-size: 13px;
+            }
+
+            .wheel-box {
+                padding: 3px;
+                border-radius: 8px;
+            }
+
+            #feed-btn {
+                width: 50px;
+                height: 45px;
             }
         }
     </style>
@@ -303,56 +309,53 @@
         <div id="wheel-container">
             <!-- Z-Axis Wheel -->
             <div class="wheel-box">
-                <div class="wheel-label">Z-AXIS (22mm/rev)</div>
+                <div class="wheel-display">
+                    <div class="wheel-axis">Z</div>
+                    <div id="valZ" class="wheel-val">450.0</div>
+                    <div class="wheel-unit">mm</div>
+                </div>
                 <div id="wheel-z" class="hand-wheel">
                     <div class="wheel-knob"></div>
-                    <div class="wheel-display">
-                        <div class="wheel-axis">Z</div>
-                        <div id="valZ" class="wheel-val">450.0</div>
-                        <div class="wheel-unit">mm</div>
-                    </div>
                 </div>
-                <button class="wheel-zero" onclick="setRelativeZero('z')">ZERO</button>
+                <button class="wheel-zero" onclick="setRelativeZero('z')">Z 0-SET</button>
             </div>
 
             <!-- X-Axis Wheel -->
             <div class="wheel-box">
-                <div class="wheel-label">X-AXIS (5mm/rev)</div>
+                <div class="wheel-display">
+                    <div class="wheel-axis">X</div>
+                    <div id="valX" class="wheel-val">0.0</div>
+                    <div class="wheel-unit">mm</div>
+                </div>
                 <div id="wheel-x" class="hand-wheel">
                     <div class="wheel-knob"></div>
-                    <div class="wheel-display">
-                        <div class="wheel-axis">X</div>
-                        <div id="valX" class="wheel-val">0.0</div>
-                        <div class="wheel-unit">mm</div>
-                    </div>
                 </div>
-                <button class="wheel-zero" onclick="setRelativeZero('x')">ZERO</button>
+                <button class="wheel-zero" onclick="setRelativeZero('x')">X 0-SET</button>
             </div>
 
             <!-- S-Axis Wheel -->
             <div class="wheel-box">
-                <div class="wheel-label" style="color:#ff9900">S-AXIS (3mm/rev)</div>
+                <div class="wheel-display" style="border-color: #664400; background: rgba(30,20,0,0.8);">
+                    <div class="wheel-axis" style="color:#ff9900">S</div>
+                    <div id="valS" class="wheel-val" style="text-shadow: 0 0 10px #ff6600; color:#ffcc99">0.0</div>
+                    <div class="wheel-unit" style="color:#ff9900">mm</div>
+                </div>
                 <div id="wheel-s" class="hand-wheel" style="border-color:#664400">
                     <div class="wheel-knob" style="background:radial-gradient(circle at 30% 30%, #664400, #221100)">
                     </div>
-                    <div class="wheel-display">
-                        <div class="wheel-axis" style="color:#ff9900">S</div>
-                        <div id="valS" class="wheel-val" style="text-shadow: 0 0 10px #ff6600; color:#ffcc99">0.0</div>
-                        <div class="wheel-unit" style="color:#ff9900">mm</div>
-                    </div>
                 </div>
-                <button class="wheel-zero" onclick="setRelativeZero('s')"
-                    style="color:#ff9900; border-color:#664400">ZERO</button>
+                <button class="wheel-zero" onclick="setRelativeZero('s')" style="color:#ff9900; border-color:#664400">S
+                    0-SET</button>
             </div>
 
             <!-- Extra Controls -->
             <div class="extra-ctrls">
                 <div id="contact-lamp-box">
                     <div id="contact-lamp"></div>
-                    <div style="font-size:10px; color:#666;">CONTACT</div>
+                    <div style="font-size:9px; color:#666;">CONTACT</div>
                 </div>
                 <div id="mode-switch-area">
-                    <button id="feed-btn" onclick="toggleFeed()">AUTO FEED<br>ON/OFF</button>
+                    <button id="feed-btn" onclick="toggleFeed()">AUTO<br>FEED</button>
                 </div>
             </div>
         </div>
