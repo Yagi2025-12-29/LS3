@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "STEP1：端面基準出し",
+    "description": "外径荒バイトを使用し、端面を軽く切削してZゼロを設定する。",
+    "conditions": {
+      "toolId": "outerRough",
+      "zZero": true,
+      "faceCut": true,
+      "rpmRange": [500, 1200]
+    },
+    "onCorrect": 2,
+    "onWrong": {
+      "retry": 1,
+      "hint": "外径荒バイトで端面を軽く切削し、Zを0セットしてください。"
+    }
+  },
+
+  {
+    "id": 2,
+    "title": "STEP2：外径荒加工",
+    "description": "外径荒バイトで外径をΦ50まで荒加工する。",
+    "conditions": {
+      "toolId": "outerRough",
+      "targetDiameter": 50,
+      "rpmRange": [500, 1200]
+    },
+    "onCorrect": 3,
+    "onWrong": {
+      "retry": 2,
+      "hint": "外径荒バイトで外径をΦ50まで削ってください。"
+    }
+  },
+
+  {
+    "id": 3,
+    "title": "STEP3：外径仕上げ",
+    "description": "外径仕上げバイトで外径をΦ48に仕上げる。",
+    "conditions": {
+      "toolId": "outerFinish",
+      "targetDiameter": 48,
+      "rpmRange": [500, 1200]
+    },
+    "onCorrect": 4,
+    "onWrong": {
+      "retry": 3,
+      "hint": "仕上げバイトに交換し、外径をΦ48に仕上げてください。"
+    }
+  },
+
+  {
+    "id": 4,
+    "title": "STEP4：面取り",
+    "description": "面取りバイトでC1の面取りを行う。",
+    "conditions": {
+      "toolId": "chamfer",
+      "chamferDone": true
+    },
+    "onCorrect": 5,
+    "onWrong": {
+      "retry": 4,
+      "hint": "面取りバイトでC1の面取りを行ってください。"
+    }
+  },
+
+  {
+    "id": 5,
+    "title": "STEP5：ネジ切り",
+    "description": "ネジ切りバイトでM20のネジを切る。",
+    "conditions": {
+      "toolId": "thread",
+      "threadDone": true
+    },
+    "onCorrect": "finish",
+    "onWrong": {
+      "retry": 5,
+      "hint": "ネジ切りバイトでネジを切ってください。"
+    }
+  }
+]
