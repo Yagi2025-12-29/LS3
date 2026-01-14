@@ -65,7 +65,7 @@ window.LS2_UI = {
             if (type.toLowerCase().includes("drill")) return;
             st.realPos.x -= deltaPx; // 半径減＝中心方向
         } else if (axis === "s") {
-            st.realPos.s += deltaPx;
+            st.realPos.s -= deltaPx;
         }
 
         window.LS2_Cut.simulate();

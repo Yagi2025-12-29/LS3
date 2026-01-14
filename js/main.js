@@ -24,12 +24,18 @@
 
         const area = document.getElementById("mode-switch-area");
         if (st.isHalfNutOn) {
-            area.innerHTML = `<div class="thread-ctrl-box" style="display:flex; flex-direction:column; gap:4px; height:100%;">
-                <button class="btn-thread" onmousedown="LS2_State.threadMoveDir=-1" onmouseup="LS2_State.threadMoveDir=0" style="flex:1; background:#004400; color:#0f0; border:1px solid #0f0; font-size:10px; font-weight:bold; border-radius:5px;">正転 (送り)</button>
-                <button class="btn-thread" onmousedown="LS2_State.threadMoveDir=1" onmouseup="LS2_State.threadMoveDir=0" style="flex:1; background:#004400; color:#0f0; border:1px solid #0f0; font-size:10px; font-weight:bold; border-radius:5px;">逆転 (戻り)</button>
+            area.innerHTML = `<div class="thread-ctrl-row" style="display:flex; gap:4px; height:100%; width:100%;">
+                <button class="btn-thread" 
+                    onmousedown="LS2_State.threadMoveDir=-1" onmouseup="LS2_State.threadMoveDir=0"
+                    ontouchstart="LS2_State.threadMoveDir=-1" ontouchend="LS2_State.threadMoveDir=0"
+                    style="flex:1; background:#004400; color:#0f0; border:2px solid #0f0; font-size:12px; font-weight:bold; border-radius:8px;">正転<br>(送り)</button>
+                <button class="btn-thread" 
+                    onmousedown="LS2_State.threadMoveDir=1" onmouseup="LS2_State.threadMoveDir=0"
+                    ontouchstart="LS2_State.threadMoveDir=1" ontouchend="LS2_State.threadMoveDir=0"
+                    style="flex:1; background:#004400; color:#0f0; border:2px solid #0f0; font-size:12px; font-weight:bold; border-radius:8px;">逆転<br>(戻り)</button>
             </div>`;
         } else {
-            area.innerHTML = `<button id="feed-btn" onclick="toggleFeed()">AUTO FEED<br>ON/OFF</button>`;
+            area.innerHTML = `<button id="feed-btn" onclick="toggleFeed()" style="height:100%; width:100%; font-size:11px; font-weight:bold; border-radius:8px;">AUTO<br>FEED</button>`;
         }
         window.LS2_UI.updateDRO();
         window.LS2_Render.draw();

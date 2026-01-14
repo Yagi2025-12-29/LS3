@@ -53,8 +53,10 @@ window.LS2_Render = {
 
         ctx.save();
         const tools = window.LS2_Tools;
-        if (type.startsWith("outer")) tools.drawOuter(ctx, bX, bY);
-        if (type.startsWith("inner")) tools.drawInner(ctx, bX, bY);
+        if (type === "outerRough") tools.drawOuter(ctx, bX, bY, false);
+        if (type === "outerFinish") tools.drawOuter(ctx, bX, bY, true);
+        if (type === "innerRough") tools.drawInner(ctx, bX, bY, false);
+        if (type === "innerFinish") tools.drawInner(ctx, bX, bY, true);
         if (type === "thread") tools.drawThread(ctx, bX, bY);
         if (type === "chamfer") tools.drawChamfer(ctx, bX, bY);
         if (type === "centerDrill") tools.drawDrill(ctx, bX, midY, true);
